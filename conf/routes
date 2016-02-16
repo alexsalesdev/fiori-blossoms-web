@@ -1,0 +1,16 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET           /products            controllers.ProductApp.getAll(sort: String ?= "id")
+GET           /products/:id        controllers.ProductApp.getById(id: java.util.UUID)
+POST          /products            controllers.ProductApp.insert()
+PUT           /products/:id        controllers.ProductApp.update(id: java.util.UUID)
+DELETE        /products/:id        controllers.ProductApp.delete(id: java.util.UUID)
+DELETE        /products            controllers.ProductApp.deleteAll()
+
+POST          /login               controllers.Application.login()
+GET           /authenticate        controllers.Application.authenticate()
+GET             /email             controllers.Application.email()
+# Map static resources from the /public folder to the /assets URL path
+GET           /assets/*file        controllers.Assets.versioned(path="/public", file: Asset)
